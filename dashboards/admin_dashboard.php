@@ -120,6 +120,9 @@
                       Status 
                       </th>
                       <th scope="col" class="px-6 py-3">
+                      created At 
+                      </th>
+                      <th scope="col" class="px-6 py-3">
                        Actions
                       </th>
                   </tr>
@@ -145,7 +148,9 @@
                       <td class='px-6 py-4'>
                       In Stock
                       </td>
-                                   
+                      <td class='px-6 py-4'>
+                     4-3-2003
+                      </td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
                           <a href="#" class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
@@ -173,6 +178,9 @@
                        number of Products
                       </th>
                       <th scope="col" class="px-6 py-3">
+                      Created At
+                      </th>
+                      <th scope="col" class="px-6 py-3">
                        Actions
                       </th>
                   </tr>
@@ -191,6 +199,9 @@
                       </td>
                       <td class='px-6 py-4'>
                      23
+                      </td>        
+                      <td class='px-6 py-4'>
+                      03-06-2024
                       </td>        
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
@@ -225,6 +236,9 @@
                       Products Supplied
                       </th>
                       <th scope="col" class="px-6 py-3">
+                      Created At
+                      </th>
+                      <th scope="col" class="px-6 py-3">
                        Actions
                       </th>
                   </tr>
@@ -250,7 +264,9 @@
                       <td class='px-6 py-4'>
                      21
                       </td>
-                                   
+                      <th scope="col" class="px-6 py-3">
+                      03-06-2024
+                      </th> 
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
                           <a href="#" class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
@@ -283,6 +299,9 @@
                       Quantity Ordered
                       </th>
                       <th scope="col" class="px-6 py-3">
+                      Created At
+                      </th>
+                      <th scope="col" class="px-6 py-3">
                        Actions
                       </th>
                   </tr>
@@ -308,7 +327,9 @@
                       <td class='px-6 py-4'>
                      21
                       </td>
-                                   
+                      <th scope="col" class="px-6 py-3">
+                      03-05-2023
+                      </th>  
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
                           <a href="#" class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
