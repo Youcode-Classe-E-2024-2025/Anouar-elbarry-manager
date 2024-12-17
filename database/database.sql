@@ -40,3 +40,17 @@ address VARCHAR(200) NOT NULL ,
 products_supplied INT ,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
+
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT,
+    supplier_id INT,
+    product_id INT,
+    order_date DATE,
+    order_status ENUM('pending', 'shipped', 'delivered'),
+    quantity_ordered INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (customer_id) REFERENCES customer(id),
+    FOREIGN KEY (supplier_id) REFERENCES supplier(id),
+    FOREIGN KEY (product_id) REFERENCES product(id)
+);
