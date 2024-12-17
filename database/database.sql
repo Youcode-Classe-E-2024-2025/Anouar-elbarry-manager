@@ -22,3 +22,10 @@ CREATE TABLE product (
     FOREIGN KEY (category_id) REFERENCES category(id),
     FOREIGN KEY (supplier_id) REFERENCES supplier(id)
 );
+
+CREATE TABLE category (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(50) NOT NULL,
+    products_nbr INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
