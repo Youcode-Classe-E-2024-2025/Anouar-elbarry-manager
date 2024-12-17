@@ -168,7 +168,7 @@ INNER JOIN
       </div>
 
 <!-- Categories table -->
-<div class="mt-14   category_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+<div class="mt-14  hidden category_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
           <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
@@ -218,7 +218,7 @@ INNER JOIN
       </div>
 
 <!-- Suppliers table -->
-<div class="mt-14 hidden supplier_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+<div class="mt-14  supplier_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
           <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
@@ -249,34 +249,32 @@ INNER JOIN
                   </tr>
               </thead>
               <tbody>
-              <tr
+              <?php 
+                      $sql = 'SELECT * FROM supplier';
+                      $result = $conn->query($sql);
+                      if(! $result)
+                        {
+                            die("Invalide query :". $conn->error) ;
+                             }                 
+                      while($row = $result->fetch_assoc()){
+                        echo"
+                         <tr
                       class='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
-                      <td class='px-6 py-4'>
-                        3
-                      </td>
-                      <td class='px-6 py-4'>
-                        ALIDOC
-                      </td>
-                      <td class='px-6 py-4'>
-                          elbarry@gmail.com
-                      </td>
-                      <td class='px-6 py-4'>
-                     +212 7648369
-                      </td>
-                      <td class='px-6 py-4'>
-                     MARRAKECH
-                      </td>
-                      <td class='px-6 py-4'>
-                     21
-                      </td>
-                      <th scope="col" class="px-6 py-3">
-                      03-06-2024
-                      </th> 
+                      <td class='px-6 py-4'>{$row['id']}</td>
+                      <td class='px-6 py-4'>{$row['supplier_name']} </td>
+                      <td class='px-6 py-4'>{$row['email']} </td>
+                      <td class='px-6 py-4'>{$row['phone']} </td>
+                      <td class='px-6 py-4'>{$row['address']}</td>
+                      <td class='px-6 py-4'>{$row['products_supplied']}</td>
+                      <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href="#" class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a href='' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
+                 ";
+                      }
+?>
               </tbody>
           </table>
       </div>
