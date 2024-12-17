@@ -114,10 +114,13 @@
                       Supplier
                       </th>
                       <th scope="col" class="px-6 py-3">
-                      Quantity in Stock
+                      Current Stock
                       </th>
                       <th scope="col" class="px-6 py-3">
                       Reorder Level
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                      Status 
                       </th>
                       <th scope="col" class="px-6 py-3">
                        Actions
@@ -144,6 +147,9 @@
                       </td>
                       <td class='px-6 py-4'>
                      23
+                      </td>
+                      <td class='px-6 py-4'>
+                      In Stock
                       </td>
                                    
                       <td class='px-2 py-4 flex  justify-around'>
@@ -202,7 +208,7 @@
       </div>
 
 <!-- Suppliers table -->
-<div class="mt-14  supplier_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+<div class="mt-14 hidden supplier_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
           <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
@@ -259,6 +265,7 @@
               </tbody>
           </table>
       </div>
+
 
     <script>
 
