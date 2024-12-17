@@ -156,7 +156,7 @@
       </div>
 
 <!-- Categories table -->
-<div class="mt-14  products_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+<div class="mt-14 hidden  category_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
           <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
@@ -201,6 +201,64 @@
           </table>
       </div>
 
+<!-- Suppliers table -->
+<div class="mt-14  supplier_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+          <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
+              <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                  <tr>
+                      <th scope="col" class="px-6 py-3">
+                          ID
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                      Name
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                      Email
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                      Phone Number
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                      Address
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                      Supplied Nbr
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                       Actions
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+              <tr
+                      class='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
+                      <td class='px-6 py-4'>
+                        3
+                      </td>
+                      <td class='px-6 py-4'>
+                        ALIDOC
+                      </td>
+                      <td class='px-6 py-4'>
+                          elbarry@gmail.com
+                      </td>
+                      <td class='px-6 py-4'>
+                     +212 7648369
+                      </td>
+                      <td class='px-6 py-4'>
+                     MARRAKECH
+                      </td>
+                      <td class='px-6 py-4'>
+                     21
+                      </td>
+                                   
+                      <td class='px-2 py-4 flex  justify-around'>
+                          <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
+                          <a href="#" class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                      </td>
+              </tr>
+              </tbody>
+          </table>
+      </div>
 
     <script>
 
