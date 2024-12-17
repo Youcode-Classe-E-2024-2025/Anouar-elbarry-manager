@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "Jppp5734";
-$dbname = "packagesdb";
+$dbname = "stockwise";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
