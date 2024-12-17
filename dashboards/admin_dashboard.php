@@ -1,3 +1,6 @@
+<?php 
+require_once ('./../database/configuration.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,7 +100,7 @@
 </aside>
 
 <!-- products table -->
-<div class="mt-14 hidden products_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+<div class="mt-14  products_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
           <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
@@ -117,45 +120,49 @@
                       Current Stock
                       </th>
                       <th scope="col" class="px-6 py-3">
-                      Status 
-                      </th>
-                      <th scope="col" class="px-6 py-3">
-                      created At 
-                      </th>
-                      <th scope="col" class="px-6 py-3">
                        Actions
                       </th>
                   </tr>
               </thead>
               <tbody>
-              <tr
+             
+                      <?php 
+                      $sql = 'SELECT 
+    product.id AS product_id,
+    product.name AS product_name,
+    supplier.supplier_name,
+    category.category_name,
+    product.quantity_instock
+FROM 
+    product
+INNER JOIN 
+    supplier ON product.supplier_id = supplier.id
+INNER JOIN 
+    category ON product.category_id = category.id;
+                            ';
+                      $result = $conn->query($sql);
+                      if(! $result)
+                        {
+                            die("Invalide query :". $conn->error) ;
+                             }                 
+                      while($row = $result->fetch_assoc()){
+                        echo"
+                         <tr
                       class='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
-                      <td class='px-6 py-4'>
-                        YOK
-                      </td>
-                      <td class='px-6 py-4'>
-                        YOK
-                      </td>
-                      <td class='px-6 py-4'>
-                          234
-                      </td>
-                      <td class='px-6 py-4'>
-                     23
-                      </td>
-                      <td class='px-6 py-4'>
-                     23
-                      </td>
-                      <td class='px-6 py-4'>
-                      In Stock
-                      </td>
-                      <td class='px-6 py-4'>
-                     4-3-2003
-                      </td>
+                      <td class='px-6 py-4'>{$row['product_id']}</td>
+                      <td class='px-6 py-4'>{$row['product_name']} </td>
+                      <td class='px-6 py-4'>{$row['category_name']} </td>
+                      <td class='px-6 py-4'>{$row['supplier_name']} </td>
+                      <td class='px-6 py-4'>{$row['quantity_instock']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href="#" class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a href='' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
+                 ";
+                      }
+?>
+                      
               </tbody>
           </table>
       </div>
@@ -340,7 +347,7 @@
       </div>
 
             <!-- users table -->
-            <div class="mt-14  users_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+            <div class="mt-14 hidden  users_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
           <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
