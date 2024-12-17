@@ -218,7 +218,7 @@ INNER JOIN
       </div>
 
 <!-- Suppliers table -->
-<div class="mt-14  supplier_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+<div class="mt-14 hidden supplier_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
           <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
@@ -279,12 +279,15 @@ INNER JOIN
           </table>
       </div>
       <!-- Orders table -->
-      <div class="mt-14 hidden order_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+      <div class="mt-14  order_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
           <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                       <th scope="col" class="px-6 py-3">
                        ID
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                      Customer 
                       </th>
                       <th scope="col" class="px-6 py-3">
                       Supplier
@@ -310,34 +313,50 @@ INNER JOIN
                   </tr>
               </thead>
               <tbody>
-              <tr
+              <?php 
+                      $sql = 'SELECT    
+    orders.id AS order_id,
+    supplier.supplier_name,
+    product.name AS product_name,
+    customer.first_name,
+    customer.last_name,
+    orders.order_date,
+    orders.order_status,
+    orders.quantity_ordered,
+    orders.created_at
+FROM 
+    orders
+INNER JOIN 
+    supplier ON orders.supplier_id = supplier.id
+INNER JOIN 
+    product ON orders.product_id = product.id
+INNER JOIN 
+    customer ON orders.customer_id = customer.id;';
+                      $result = $conn->query($sql);
+                      if(! $result)
+                        {
+                            die("Invalide query :". $conn->error) ;
+                             }                 
+                      while($row = $result->fetch_assoc()){
+                        echo"
+                         <tr
                       class='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
-                      <td class='px-6 py-4'>
-                        3
-                      </td>
-                      <td class='px-6 py-4'>
-                        ALIDOC
-                      </td>
-                      <td class='px-6 py-4'>
-                          elbarry@gmail.com
-                      </td>
-                      <td class='px-6 py-4'>
-                     +212 7648369
-                      </td>
-                      <td class='px-6 py-4'>
-                     pending
-                      </td>
-                      <td class='px-6 py-4'>
-                     21
-                      </td>
-                      <th scope="col" class="px-6 py-3">
-                      03-05-2023
-                      </th>  
+                      <td class='px-6 py-4'>{$row['order_id']}</td>
+                      <td class='px-6 py-4'>{$row['supplier_name']} </td>
+                      <td class='px-6 py-4'>{$row['product_name']} </td>
+                      <td class='px-6 py-4'>{$row['first_name']} {$row['last_name']} </td>
+                      <td class='px-6 py-4'>{$row['order_date']}</td>
+                      <td class='px-6 py-4'>{$row['order_status']}</td>
+                      <td class='px-6 py-4'>{$row['quantity_ordered']}</td>
+                      <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href="#" class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a href='' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
+                 ";
+                      }
+?>
               </tbody>
           </table>
       </div>
