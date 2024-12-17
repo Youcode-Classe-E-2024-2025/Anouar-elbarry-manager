@@ -12,3 +12,13 @@ CREATE TABLE app_user (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (role_id) REFERENCES role(id)
 );
+
+CREATE TABLE product (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    quantity_instock INT,
+    category_id INT,
+    supplier_id INT,
+    FOREIGN KEY (category_id) REFERENCES category(id),
+    FOREIGN KEY (supplier_id) REFERENCES supplier(id)
+);
