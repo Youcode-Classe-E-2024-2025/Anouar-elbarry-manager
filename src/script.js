@@ -8,6 +8,7 @@ const buttons = {
   products: document.getElementById('products'),
   categories: document.getElementById('categories'),
   suppliers: document.getElementById('suppliers'),
+  home: document.getElementById('home'),
 };
 
 // Tables
@@ -17,6 +18,7 @@ const tables = {
   suppliers: document.querySelector('.supplier_table'),
   categories: document.querySelector('.category_table'),
   products: document.querySelector('.products_table'),
+  home_section: document.querySelector('#home_section'),
 };
 
 // Toggle sidebar visibility
