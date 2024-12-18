@@ -9,6 +9,7 @@ const buttons = {
   categories: document.getElementById('categories'),
   suppliers: document.getElementById('suppliers'),
   home: document.getElementById('home'),
+  add_supplier: document.getElementById('add_supplier'),
 };
 
 // Tables
@@ -19,6 +20,7 @@ const tables = {
   categories: document.querySelector('.category_table'),
   products: document.querySelector('.products_table'),
   home_section: document.querySelector('#home_section'),
+  addsupplier_modal: document.querySelector('.addsupplier_modal'),
 };
 
 // Toggle sidebar visibility
@@ -44,3 +46,4 @@ buttons.categories.addEventListener('click', () => toggleTableVisibility('catego
 buttons.orders.addEventListener('click', () => toggleTableVisibility('orders'));
 buttons.users.addEventListener('click', () => toggleTableVisibility('users'));
 buttons.suppliers.addEventListener('click', () => toggleTableVisibility('suppliers'));
+buttons.add_supplier.addEventListener('click', () => toggleTableVisibility('addsupplier_modal'));
