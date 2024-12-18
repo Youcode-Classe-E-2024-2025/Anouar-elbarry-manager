@@ -104,3 +104,15 @@ INSERT INTO orders (customer_id, supplier_id, product_id, order_date, order_stat
 (3, 3, 3, '2024-12-05', 'delivered', 1),
 (1, 1, 4, '2024-12-06', 'pending', 5),
 (2, 2, 5, '2024-12-08', 'shipped', 3);
+
+-- add price to product table
+
+UPDATE product 
+SET price = CASE 
+WHEN id = 1 THEN 13
+WHEN id = 2 THEN 28
+WHEN id = 3 THEN 43
+WHEN id = 4 THEN 18
+WHEN id = 5 THEN 35
+END 
+WHERE id IN (1,2,3,4,5);
