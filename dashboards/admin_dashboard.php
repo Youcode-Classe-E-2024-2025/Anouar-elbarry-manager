@@ -3,6 +3,7 @@ require_once('./../database/configuration.php');
 require_once('./../src/modal/supplier/add_supplier.php');
 require_once('./../src\modal\categories\add_category.php');
 require_once('./../src\modal\products\add_product.php');
+require_once('./../src\modal\order\add_order.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,6 +64,7 @@ require_once('./../src\modal\products\add_product.php');
         <div class="h-full px-3 pb-4 overflow-y-auto bg-transparent shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
+                    <!-- home -->
                     <a href="./../dashboards\admin_dashboard.php"
                     id="home"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -182,7 +184,7 @@ require_once('./../src\modal\products\add_product.php');
 </svg>
 
 
-                        <span class="flex-1 ms-3 whitespace-nowrap">Add new Supplier</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Add Supplier</span>
                     </a>
                 </li>
 
@@ -198,7 +200,20 @@ require_once('./../src\modal\products\add_product.php');
 </svg>
 
 
-                        <span class="flex-1 ms-3 whitespace-nowrap">Add new Category</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Add Category</span>
+                    </a>
+                </li>
+                <!-- add Order -->
+                <li>
+                    <a href="#"
+                     id="add_order"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                        class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
+                         fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+</svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Add Order</span>
                     </a>
                 </li>
                 
@@ -214,7 +229,7 @@ require_once('./../src\modal\products\add_product.php');
 </svg>
 
 
-                        <span class="flex-1 ms-3 whitespace-nowrap">Add new Product</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Add Product</span>
                     </a>
                 </li>
 
@@ -231,9 +246,10 @@ require_once('./../src\modal\products\add_product.php');
 
 
 
-                        <span class="flex-1 ms-3 whitespace-nowrap">Add new Product</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Add user</span>
                     </a>
                 </li>
+
             </ul>
         </div>
     </aside>
