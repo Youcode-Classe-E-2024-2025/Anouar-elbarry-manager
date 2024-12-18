@@ -8,7 +8,7 @@ require_once('./../database/configuration.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./../src\output.css">
-    <title>Admin Dashboard</title>
+    <title>STOCK WISE Admin</title>
 </head>
 
 <body style="background-image: url('./../src/imges/bg.png'); background-size:cover;">
@@ -30,8 +30,8 @@ require_once('./../database/configuration.php');
                     </button>
                     <a href="#" class="flex ms-2 md:me-24">
 
-                        <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white">Admin
-                            Dashboard</span>
+                        <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white">
+                            STOCK WISE</span>
                     </a>
                 </div>
                 <div class="flex items-center">
@@ -59,6 +59,7 @@ require_once('./../database/configuration.php');
             <ul class="space-y-2 font-medium">
                 <li>
                     <a href="./../dashboards\admin_dashboard.php"
+                    id="home"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
@@ -189,7 +190,7 @@ require_once('./../database/configuration.php');
 </section>
 
     <!-- products table -->
-    <div class="mt-14 hidden products_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="pt-14 hidden products_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -256,7 +257,7 @@ INNER JOIN
     </div>
 
     <!-- Categories table -->
-    <div class="mt-14  hidden category_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="pt-14  hidden category_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -305,7 +306,7 @@ INNER JOIN
     </div>
 
     <!-- Suppliers table -->
-    <div class="mt-14 hidden supplier_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="pt-14 hidden supplier_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -365,7 +366,7 @@ INNER JOIN
         </table>
     </div>
     <!-- Orders table -->
-    <div class="mt-14 hidden order_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="pt-14 hidden order_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -447,7 +448,7 @@ INNER JOIN
     </div>
 
     <!-- users table -->
-    <div class="mt-14  hidden users_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="pt-14  hidden users_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
