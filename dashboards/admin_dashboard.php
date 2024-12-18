@@ -11,7 +11,7 @@ require_once('./../database/configuration.php');
     <title>Admin Dashboard</title>
 </head>
 
-<body>
+<body style="background-image: url('./../src/imges/bg.png'); background-size:cover;">
 
     <nav class="fixed top-0 z-50 w-full bg-black border-b border-gray-600">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
@@ -53,9 +53,9 @@ require_once('./../database/configuration.php');
     </nav>
     <!-- aside -->
     <aside id="logo-sidebar"
-        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
         aria-label="Sidebar">
-        <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+        <div class="h-full px-3 pb-4 overflow-y-auto bg-transparent shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
                     <a href="./../dashboards\admin_dashboard.php"
@@ -166,6 +166,27 @@ require_once('./../database/configuration.php');
             </ul>
         </div>
     </aside>
+
+    <!-- home -->
+    <section id="home_section" class="h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg relative">
+  <div class="absolute inset-0 bg-black opacity-50"></div>
+  <div class="relative z-10 text-center text-white pt-40">
+    <h1 class="text-4xl md:text-5xl font-bold leading-tight">Welcome to <span class="text-emerald-500">STOK</span> <span class="text-orange-600">WISE</span></h1>
+    <p class="mt-4 text-lg md:text-xl">Your smart inventory management solution</p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 h-64 gap-6 p-6">
+    <div class="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
+      <img src="./../src/imges/stock1.jpg" alt="Inventory stock displayed neatly on shelves" class="w-full h-auto transform transition-transform duration-300 hover:scale-105">
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
+      <img src="./../src/imges/stock2.jpg" alt="Technicians monitoring inventory levels with digital tools" class="w-full h-auto transform transition-transform duration-300 hover:scale-105">
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
+      <img src="./../src/imges/stock3.jpg" alt="Graphical representation of stock data and analysis" class="w-full h-auto transform transition-transform duration-300 hover:scale-105">
+    </div>
+  </div>
+</section>
 
     <!-- products table -->
     <div class="mt-14 hidden products_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
