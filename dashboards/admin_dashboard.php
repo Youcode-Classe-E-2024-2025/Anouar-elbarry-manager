@@ -100,15 +100,15 @@ require_once ('./../database/configuration.php');
 </aside>
 
 <!-- products table -->
-<div class="mt-14 hidden  products_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+<div class="mt-14   products_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
           <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                       <th scope="col" class="px-6 py-3">
-                          ID
+                        Name
                       </th>
                       <th scope="col" class="px-6 py-3">
-                      Name
+                      Price
                       </th>
                       <th scope="col" class="px-6 py-3">
                       Category
@@ -128,7 +128,7 @@ require_once ('./../database/configuration.php');
              
                       <?php 
                       $sql = 'SELECT 
-    product.id AS product_id,
+    product.price,
     product.name AS product_name,
     supplier.supplier_name,
     category.category_name,
@@ -149,8 +149,8 @@ INNER JOIN
                         echo"
                          <tr
                       class='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
-                      <td class='px-6 py-4'>{$row['product_id']}</td>
-                      <td class='px-6 py-4'>{$row['product_name']} </td>
+                      <td class='px-6 py-4'>{$row['product_name']}</td>
+                      <td class='px-6 py-4'>{$row['price']} DH</td>
                       <td class='px-6 py-4'>{$row['category_name']} </td>
                       <td class='px-6 py-4'>{$row['supplier_name']} </td>
                       <td class='px-6 py-4'>{$row['quantity_instock']}</td>
@@ -362,7 +362,7 @@ INNER JOIN
       </div>
 
             <!-- users table -->
-            <div class="mt-14   users_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+            <div class="mt-14  hidden users_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
           <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
