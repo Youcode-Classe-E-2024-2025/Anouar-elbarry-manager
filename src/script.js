@@ -13,6 +13,7 @@ const buttons = {
   add_category: document.getElementById('add_category'),
   add_product: document.getElementById('add_product'),
   add_order: document.getElementById('add_order'),
+  add_user: document.getElementById('add_user'),
 };
 
 // Tables
@@ -26,6 +27,7 @@ const tables = {
   addsupplier_modal: document.querySelector('.addsupplier_modal'),
   addcategory_modal: document.querySelector('.addcategory_modal'),
   addproduct_modal: document.querySelector('.Addproduct_modal'),
+  addorder_modal: document.querySelector('.Addorder_modal'),
   addorder_modal: document.querySelector('.Addorder_modal'),
 };
 
@@ -57,3 +59,25 @@ buttons.add_supplier.addEventListener('click', () => toggleTableVisibility('adds
 buttons.add_product.addEventListener('click', () => toggleTableVisibility('addproduct_modal'));
 buttons.add_category.addEventListener('click', () => toggleTableVisibility('addcategory_modal'));
 buttons.add_order.addEventListener('click', () => toggleTableVisibility('addorder_modal'));
+
+// controll the buttons
+buttons.products.addEventListener('click',()=>{
+  buttons.add_product.classList.toggle('hidden');
+  buttons.add_product.classList.toggle('flex');
+})
+buttons.categories.addEventListener('click',()=>{
+  buttons.add_category.classList.toggle('hidden');
+  buttons.add_category.classList.toggle('flex');
+})
+buttons.suppliers.addEventListener('click',()=>{
+  buttons.add_supplier.classList.toggle('hidden');
+  buttons.add_supplier.classList.toggle('flex');
+})
+buttons.orders.addEventListener('click',()=>{
+  buttons.add_order.classList.toggle('hidden');
+  buttons.add_order.classList.toggle('flex');
+})
+buttons.users.addEventListener('click',()=>{
+  buttons.add_user.classList.toggle('hidden');
+  buttons.add_user.classList.toggle('flex');
+})
