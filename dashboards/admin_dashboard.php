@@ -279,7 +279,7 @@ INNER JOIN
           </table>
       </div>
       <!-- Orders table -->
-      <div class="mt-14  order_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+      <div class="mt-14 hidden order_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
           <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
@@ -362,7 +362,7 @@ INNER JOIN
       </div>
 
             <!-- users table -->
-            <div class="mt-14 hidden  users_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
+            <div class="mt-14   users_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">  
           <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
@@ -387,28 +387,39 @@ INNER JOIN
                   </tr>
               </thead>
               <tbody>
-              <tr
+              <?php 
+                      $sql = 'SELECT 
+                          
+                      app_user.id as user_id,
+                      app_user.username,
+                      app_user.email,
+                      role.role_name,
+                      app_user.created_at
+
+                      FROM app_user
+                      INNER JOIN role ON app_user.role_id = role.id';
+                      $result = $conn->query($sql);
+                      if(! $result)
+                        {
+                            die("Invalide query :". $conn->error) ;
+                             }                 
+                      while($row = $result->fetch_assoc()){
+                        echo"
+                         <tr
                       class='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
-                      <td class='px-6 py-4'>
-                        3
-                      </td>
-                      <td class='px-6 py-4'>
-                        anouar
-                      </td>
-                      <td class='px-6 py-4'>
-                          elbarry@gmail.com
-                      </td>
-                      <td class='px-6 py-4'>
-                     WORKER
-                      </td>
-                      <td class='px-6 py-4'>
-                     3-7-2014
-                      </td>        
+                      <td class='px-6 py-4'>{$row['user_id']}</td>
+                      <td class='px-6 py-4'>{$row['username']} </td>
+                      <td class='px-6 py-4'>{$row['email']} </td>
+                      <td class='px-6 py-4'>{$row['role_name']} {$row['last_name']} </td>
+                      <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href="#" class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a href='' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
+                 ";
+                      }
+?>
               </tbody>
           </table>
       </div>
