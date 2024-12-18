@@ -1,5 +1,6 @@
 <?php
 require_once('./../database/configuration.php');
+require_once('./../src/modal/supplier/add_supplier.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +14,7 @@ require_once('./../database/configuration.php');
 
 <body style="background-image: url('./../src/imges/bg.png'); background-size:cover;">
 
+    <!-- navbare -->
     <nav class="fixed top-0 z-50 w-full bg-black border-b border-gray-600">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
@@ -51,6 +53,7 @@ require_once('./../database/configuration.php');
             </div>
         </div>
     </nav>
+    
     <!-- aside -->
     <aside id="logo-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
@@ -162,6 +165,22 @@ require_once('./../database/configuration.php');
                         </svg>
 
                         <span class="flex-1 ms-3 whitespace-nowrap">Statistics</span>
+                    </a>
+                </li>
+
+                <!-- add supplier -->
+                <li>
+                    <a href="#"
+                     id="suppliers"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                        class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
+                         fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+</svg>
+
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Add new Supplier</span>
                     </a>
                 </li>
             </ul>
