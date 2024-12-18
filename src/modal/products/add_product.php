@@ -1,7 +1,7 @@
 <?php
 require_once './../database/configuration.php';
 ?>
-<div class="hidden pt-14 Addproduct-modal h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg px-8">
+<div class="hidden pt-14 Addproduct_modal h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg px-8">
         <h2 class="text-2xl font-bold mb-4">Product Information</h2>
         <form action="./../src/controllers/packageController.php" method="POST">
             <div class="mb-4">
@@ -40,7 +40,7 @@ require_once './../database/configuration.php';
             <div class="flex justify-end">
                 <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600">Submit</button>
             </div>
-            <div class="hidden flex justify-end">
+            <div class="hidden  justify-end">
                 <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">update</button>
             </div>
         </form>
