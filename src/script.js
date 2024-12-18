@@ -12,6 +12,7 @@ const buttons = {
   add_supplier: document.getElementById('add_supplier'),
   add_category: document.getElementById('add_category'),
   add_product: document.getElementById('add_product'),
+  add_order: document.getElementById('add_order'),
 };
 
 // Tables
@@ -24,7 +25,8 @@ const tables = {
   home_section: document.querySelector('#home_section'),
   addsupplier_modal: document.querySelector('.addsupplier_modal'),
   addcategory_modal: document.querySelector('.addcategory_modal'),
-  Addproduct_modal: document.querySelector('.Addproduct-modal'),
+  addproduct_modal: document.querySelector('.Addproduct_modal'),
+  addorder_modal: document.querySelector('.Addorder_modal'),
 };
 
 // Toggle sidebar visibility
@@ -38,11 +40,12 @@ function hideAllTables() {
   Object.values(tables).forEach(table => table.classList.add('hidden'));
 }
 
-// Function to toggle the visibility of the clicked table
 function toggleTableVisibility(tableKey) {
-  hideAllTables();
-  tables[tableKey].classList.toggle('hidden');
-}
+    console.log(`Toggling visibility for: ${tableKey}`); // Debug
+    hideAllTables();
+    tables[tableKey].classList.toggle('hidden');
+  }
+  
 
 // Event listeners for each button
 buttons.products.addEventListener('click', () => toggleTableVisibility('products'));
@@ -51,4 +54,6 @@ buttons.orders.addEventListener('click', () => toggleTableVisibility('orders'));
 buttons.users.addEventListener('click', () => toggleTableVisibility('users'));
 buttons.suppliers.addEventListener('click', () => toggleTableVisibility('suppliers'));
 buttons.add_supplier.addEventListener('click', () => toggleTableVisibility('addsupplier_modal'));
-buttons.add_product.addEventListener('click', () => toggleTableVisibility('Addproduct_modal'));
+buttons.add_product.addEventListener('click', () => toggleTableVisibility('addproduct_modal'));
+buttons.add_category.addEventListener('click', () => toggleTableVisibility('addcategory_modal'));
+buttons.add_order.addEventListener('click', () => toggleTableVisibility('addorder_modal'));

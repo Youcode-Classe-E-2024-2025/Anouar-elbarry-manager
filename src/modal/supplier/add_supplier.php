@@ -22,7 +22,7 @@
             <div class="col-start-2 flex justify-end">
                 <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600">Submit</button>
             </div>
-            <div class="hidden flex justify-end">
+            <div class="hidden justify-end">
                 <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">update</button>
             </div>
         </form>
