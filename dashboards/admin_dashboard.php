@@ -56,17 +56,17 @@ require_once('./../src\modal\order\add_order.php');
             </div>
         </div>
     </nav>
-    
+
     <!-- aside -->
     <aside id="logo-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
         aria-label="Sidebar">
-        <div class="h-full px-3 pb-4 overflow-y-auto bg-transparent shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] dark:bg-gray-800">
+        <div
+            class="h-full px-3 pb-4 overflow-y-auto bg-transparent shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
                     <!-- home -->
-                    <a href="./../dashboards\admin_dashboard.php"
-                    id="home"
+                    <a href="./../dashboards\admin_dashboard.php" id="home"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
@@ -81,8 +81,7 @@ require_once('./../src\modal\order\add_order.php');
 
                 <!-- products -->
                 <li>
-                    <a href="#"
-                     id="products"
+                    <a href="#" id="products"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
@@ -93,11 +92,24 @@ require_once('./../src\modal\order\add_order.php');
                         <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
                     </a>
                 </li>
+                <!-- add Product -->
+                <li>
+                    <a href="#" id="add_product"
+                        class="hidden items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
+                            fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Add Product</span>
+                    </a>
+                </li>
 
                 <!-- Categories -->
                 <li>
-                    <a href="#"
-                     id="categories"
+                    <a href="#" id="categories"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
@@ -109,11 +121,23 @@ require_once('./../src\modal\order\add_order.php');
                         <span class="flex-1 ms-3 whitespace-nowrap">Categories</span>
                     </a>
                 </li>
+                <!-- add Category -->
+                <li>
+                    <a href="#" id="add_category"
+                        class="hidden items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
+                            fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
 
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Add Category</span>
+                    </a>
+                </li>
                 <!-- Supplier -->
                 <li>
-                    <a href="#"
-                     id="suppliers"
+                    <a href="#" id="suppliers"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
@@ -125,11 +149,24 @@ require_once('./../src\modal\order\add_order.php');
                         <span class="flex-1 ms-3 whitespace-nowrap">Supplier</span>
                     </a>
                 </li>
+                <!-- add supplier -->
+                <li>
+                    <a href="#" id="add_supplier"
+                        class="hidden items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
+                            fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Add Supplier</span>
+                    </a>
+                </li>
 
                 <!-- Orders -->
                 <li>
-                    <a href="#"
-                     id="orders"
+                    <a href="#" id="orders"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
@@ -141,11 +178,21 @@ require_once('./../src\modal\order\add_order.php');
                         <span class="flex-1 ms-3 whitespace-nowrap">Orders</span>
                     </a>
                 </li>
-
+                <!-- add Order -->
+                <li>
+                    <a href="#" id="add_order"
+                        class="hidden items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
+                            fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Add Order</span>
+                    </a>
+                </li>
                 <!-- Users -->
                 <li>
-                    <a href="#"
-                    id="users"
+                    <a href="#" id="users"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
@@ -154,6 +201,22 @@ require_once('./../src\modal\order\add_order.php');
                                 d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
                         </svg>
                         <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
+                    </a>
+                </li>
+                <!-- add user -->
+                <li>
+                    <a href="#" id="add_user"
+                        class="hidden items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
+                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                        </svg>
+
+
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Add user</span>
                     </a>
                 </li>
 
@@ -172,108 +235,37 @@ require_once('./../src\modal\order\add_order.php');
                     </a>
                 </li>
 
-                <!-- add supplier -->
-                <li>
-                    <a href="#"
-                     id="add_supplier"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                        class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
-                         fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-</svg>
 
-
-                        <span class="flex-1 ms-3 whitespace-nowrap">Add Supplier</span>
-                    </a>
-                </li>
-
-                <!-- add Category -->
-                <li>
-                    <a href="#"
-                     id="add_category"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                        class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
-                         fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-</svg>
-
-
-                        <span class="flex-1 ms-3 whitespace-nowrap">Add Category</span>
-                    </a>
-                </li>
-                <!-- add Order -->
-                <li>
-                    <a href="#"
-                     id="add_order"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                        class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
-                         fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-</svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Add Order</span>
-                    </a>
-                </li>
-                
-                <!-- add Product -->
-                <li>
-                    <a href="#"
-                     id="add_product"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                        class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
-                         fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-</svg>
-
-
-                        <span class="flex-1 ms-3 whitespace-nowrap">Add Product</span>
-                    </a>
-                </li>
-
-                <!-- add user -->
-                <li>
-                    <a href="#"
-                     id="add_product"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                         class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
-                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
-</svg>
-
-
-
-                        <span class="flex-1 ms-3 whitespace-nowrap">Add user</span>
-                    </a>
-                </li>
 
             </ul>
         </div>
     </aside>
 
     <!-- home -->
-    <section style="background-image: url('./../src/imges/bg.png'); background-size:cover;" id="home_section" class="h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg relative">
-  <div class="absolute inset-0 bg-black opacity-50"></div>
-  <div class="relative z-10 text-center text-white pt-40">
-    <h1 class="text-4xl md:text-5xl font-bold leading-tight">Welcome to <span class="text-emerald-500">STOK</span> <span class="text-orange-600">WISE</span></h1>
-    <p class="mt-4 text-lg md:text-xl">Your smart inventory management solution</p>
-  </div>
+    <section style="background-image: url('./../src/imges/bg.png'); background-size:cover;" id="home_section"
+        class="h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg relative">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 text-center text-white pt-40">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight">Welcome to <span
+                    class="text-emerald-500">STOK</span> <span class="text-orange-600">WISE</span></h1>
+            <p class="mt-4 text-lg md:text-xl">Your smart inventory management solution</p>
+        </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-3 h-64 gap-6 p-6">
-    <div class="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
-      <img src="./../src/imges/stock1.jpg" alt="Inventory stock displayed neatly on shelves" class="w-full h-auto transform transition-transform duration-300 hover:scale-105">
-    </div>
-    <div class="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
-      <img src="./../src/imges/stock2.jpg" alt="Technicians monitoring inventory levels with digital tools" class="w-full h-auto transform transition-transform duration-300 hover:scale-105">
-    </div>
-    <div class="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
-      <img src="./../src/imges/stock3.jpg" alt="Graphical representation of stock data and analysis" class="w-full h-auto transform transition-transform duration-300 hover:scale-105">
-    </div>
-  </div>
-</section>
+        <div class="grid grid-cols-1 sm:grid-cols-3 h-64 gap-6 p-6">
+            <div class="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
+                <img src="./../src/imges/stock1.jpg" alt="Inventory stock displayed neatly on shelves"
+                    class="w-full h-auto transform transition-transform duration-300 hover:scale-105">
+            </div>
+            <div class="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
+                <img src="./../src/imges/stock2.jpg" alt="Technicians monitoring inventory levels with digital tools"
+                    class="w-full h-auto transform transition-transform duration-300 hover:scale-105">
+            </div>
+            <div class="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
+                <img src="./../src/imges/stock3.jpg" alt="Graphical representation of stock data and analysis"
+                    class="w-full h-auto transform transition-transform duration-300 hover:scale-105">
+            </div>
+        </div>
+    </section>
 
     <!-- products table -->
     <div class="pt-14 hidden products_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
