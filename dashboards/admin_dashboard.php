@@ -4,6 +4,8 @@ require_once('./../src/forms/supplier/add_supplier.php');
 require_once('./../src\forms\categories\add_category.php');
 require_once('./../src\forms\products\add_product.php');
 require_once('./../src\forms\order\add_order.php');
+require_once('./../src\forms\customer\add_customer.php');
+require_once('./../src\forms\users\add_user.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -232,6 +234,7 @@ require_once('./../src\forms\order\add_order.php');
                         <span class="flex-1 ms-3 whitespace-nowrap">Customers</span>
                     </a>
                 </li>
+                <!-- add customer -->
                 <li>
                     <a href="#" id="add_customer"
                         class="hidden items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -397,7 +400,7 @@ INNER JOIN
                          <tr
                       class='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
                       <td class='px-6 py-4'>{$row['first_name']} {$row['last_name']}</td>
-                      <td class='px-6 py-4'>{$row['address']} DH</td>
+                      <td class='px-6 py-4'>{$row['address']}</td>
                       <td class='px-6 py-4'>{$row['email']} </td>
                       <td class='px-6 py-4'>{$row['phone']} </td>
                       <td class='px-2 py-4 flex  justify-around'>
@@ -652,11 +655,11 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['user_id']}</td>
                       <td class='px-6 py-4'>{$row['username']} </td>
                       <td class='px-6 py-4'>{$row['email']} </td>
-                      <td class='px-6 py-4'>{$row['role_name']} {$row['last_name']} </td>
+                      <td class='px-6 py-4'>{$row['role_name']}</td>
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='./../src\Controllers\user_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a href='./../src\Controllers\user_Controller.php?id=" . $row['user_id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
