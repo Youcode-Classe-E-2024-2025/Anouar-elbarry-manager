@@ -63,6 +63,30 @@ if (isset($_GET['id'])) {
         echo "Database error: " . $e->getMessage();
     }
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // Retrieve form data
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+  $address = $_POST['address'];
+
+  // Validate and sanitize data
+  $name = $conn->real_escape_string(trim($name));
+  $email = $conn->real_escape_string(trim($email));
+  $phone = $conn->real_escape_string(trim($phone));
+  $address = $conn->real_escape_string(trim($address));
+
+      // Insert data into the table
+      $insertSql = "INSERT INTO supplier (supplier_name, email,phone,`address`) 
+                    VALUES ('$name', '$email','$phone','$address')";
+     if ($conn->query($insertSql) === TRUE) {
+  echo "Supplier added successfully!";
+} else {
+  echo "Error: " . $insertSql . "<br>" . $conn->error;
+}
+  } 
+  
       ?>
       </p>
 
