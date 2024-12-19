@@ -15,6 +15,7 @@ const buttons = {
   add_product: document.getElementById('add_product'),
   add_order: document.getElementById('add_order'),
   add_user: document.getElementById('add_user'),
+  add_customer: document.getElementById('add_customer'),
 };
 
 // Tables
@@ -83,4 +84,8 @@ buttons.orders.addEventListener('click',()=>{
 buttons.users.addEventListener('click',()=>{
   buttons.add_user.classList.toggle('hidden');
   buttons.add_user.classList.toggle('flex');
+})
+buttons.customer.addEventListener('click',()=>{
+  buttons.add_customer.classList.toggle('hidden');
+  buttons.add_customer.classList.toggle('flex');
 })
