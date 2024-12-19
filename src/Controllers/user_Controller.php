@@ -44,7 +44,25 @@ require_once('./../../database/configuration.php');
     <div class="py-4 text-center">
       <p class="text-gray-600 text-sm">
       <?php 
+if (isset($_GET['id'])) {
+    $id = intval($_GET['id']); 
 
+    try {
+        $stmt = $conn->prepare("UPDATE `app_user` SET `deleted_at` = NOW() WHERE `id` = ?");
+        $stmt->bind_param("i", $id);
+
+        if ($stmt->execute()) {
+            echo " User has been soft-deleted successfully.";
+        } else {
+            echo "Failed to soft-delete user: " . $conn->error;
+        }
+        
+        $stmt->close();
+
+    } catch (mysqli_sql_exception $e) {
+        echo "Database error: " . $e->getMessage();
+    }
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Retrieve form data
   $username = $_POST['username'];
@@ -54,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $username = $conn->real_escape_string(trim($username));
   $email = $conn->real_escape_string(trim($email));
   $password = $conn->real_escape_string(trim($password));
+
    $query = 'SELECT id FROM `role`';
    $result=$conn->query($query);
    if(mysqli_num_rows($result) == 0) {
@@ -76,7 +95,6 @@ echo "Error: " . $insertSql . "<br>" . $conn->error;
 }
 }
     }
-  
       ?>
       </p>
 
