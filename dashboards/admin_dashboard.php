@@ -219,7 +219,34 @@ require_once('./../src\forms\order\add_order.php');
                         <span class="flex-1 ms-3 whitespace-nowrap">Add user</span>
                     </a>
                 </li>
+                <!-- customer -->
+                 <li>
+                    <a href="#" id="customer"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                        class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
+                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+</svg>
 
+                        <span class="flex-1 ms-3 whitespace-nowrap">Customers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="add_customer"
+                        class="hidden items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
+                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                        </svg>
+
+
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Add Customer</span>
+                    </a>
+                </li>
                 <!-- Statistics -->
                 <li>
                     <a href="#"
@@ -234,6 +261,7 @@ require_once('./../src\forms\order\add_order.php');
                         <span class="flex-1 ms-3 whitespace-nowrap">Statistics</span>
                     </a>
                 </li>
+
 
 
 
@@ -325,6 +353,56 @@ INNER JOIN
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
                           <a href='./../src\Controllers\product_Controler.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                      </td>
+              </tr>
+                 ";
+                }
+                ?>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- customer table -->
+    <div class="pt-14 hidden customer_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Address
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Email
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        phone
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
+                $sql = 'SELECT * FROM customer';
+                $result = $conn->query($sql);
+                if (!$result) {
+                    die("Invalide query :" . $conn->error);
+                }
+                while ($row = $result->fetch_assoc()) {
+                    echo "
+                         <tr
+                      class='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
+                      <td class='px-6 py-4'>{$row['first_name']} {$row['last_name']}</td>
+                      <td class='px-6 py-4'>{$row['address']} DH</td>
+                      <td class='px-6 py-4'>{$row['email']} </td>
+                      <td class='px-6 py-4'>{$row['phone']} </td>
+                      <td class='px-2 py-4 flex  justify-around'>
+                          <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
+                          <a href='./../src\Controllers\customer_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
@@ -453,13 +531,13 @@ INNER JOIN
                         ID
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Customer
-                    </th>
-                    <th scope="col" class="px-6 py-3">
                         Supplier
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Product
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                    Customer
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Order Date
@@ -516,7 +594,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='./../src\Controllers\order_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a href='./../src\Controllers\order_Controller.php?id=" . $row['order_id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
