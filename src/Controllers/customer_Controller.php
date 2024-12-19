@@ -63,6 +63,31 @@ if (isset($_GET['id'])) {
         echo "Database error: " . $e->getMessage();
     }
 }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve form data
+    $firstName = $_POST['firstName'];
+    $LastName = $_POST['LastName'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
+
+    // Validate and sanitize data
+    $firstName = $conn->real_escape_string(trim($firstName));
+    $LastName = $conn->real_escape_string(trim($LastName));
+    $email = $conn->real_escape_string(trim($email));
+    $phone = $conn->real_escape_string(trim($phone));
+    $address = $conn->real_escape_string(trim($address));
+
+        // Insert data into the table
+        $insertSql = "INSERT INTO customer (first_name, last_name, email,phone,`address`) 
+                      VALUES ('$firstName', '$LastName', '$email','$phone','$address')";
+       if ($conn->query($insertSql) === TRUE) {
+    echo "Customer added successfully!";
+} else {
+    echo "Error: " . $insertSql . "<br>" . $conn->error;
+}
+    } 
+    
       ?>
       </p>
 
