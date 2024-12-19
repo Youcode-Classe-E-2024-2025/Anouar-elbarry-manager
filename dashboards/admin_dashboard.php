@@ -355,7 +355,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['quantity_instock']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='./../src\Controllers\product_Controler.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a onClick=\"javascript:return confirm('are you sure to delet this product');\" href='./../src\Controllers\product_Controler.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
@@ -405,7 +405,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['phone']} </td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='./../src\Controllers\customer_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a onClick=\"javascript:return confirm('are you sure to delet this Customer (his related orders will be deleted)');\" href='./../src\Controllers\customer_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
@@ -455,7 +455,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='./../src\Controllers\category_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a onClick=\"javascript:return confirm('are you sure to delet this Category');\" href='./../src\Controllers\category_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
@@ -516,7 +516,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='./../src\Controllers\supplier_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a onClick=\"javascript:return confirm('are you sure to delet this Supplier it will be deleted his orders and products also');\" href='./../src\Controllers\supplier_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
@@ -597,7 +597,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='./../src\Controllers\order_Controller.php?id=" . $row['order_id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a onClick=\"javascript:return confirm('are you sure to delet this order');\" href='./../src\Controllers\order_Controller.php?id=" . $row['order_id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
@@ -659,7 +659,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='./../src\Controllers\user_Controller.php?id=" . $row['user_id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a onClick=\"javascript:return confirm('are you sure to delet this User');\" href='./../src\Controllers\user_Controller.php?id=" . $row['user_id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
