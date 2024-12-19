@@ -9,6 +9,7 @@ const buttons = {
   categories: document.getElementById('categories'),
   suppliers: document.getElementById('suppliers'),
   home: document.getElementById('home'),
+  customer: document.getElementById('customer'),
   add_supplier: document.getElementById('add_supplier'),
   add_category: document.getElementById('add_category'),
   add_product: document.getElementById('add_product'),
@@ -23,6 +24,7 @@ const tables = {
   suppliers: document.querySelector('.supplier_table'),
   categories: document.querySelector('.category_table'),
   products: document.querySelector('.products_table'),
+  customer_table: document.querySelector('.customer_table'),
   home_section: document.querySelector('#home_section'),
   addsupplier_modal: document.querySelector('.addsupplier_modal'),
   addcategory_modal: document.querySelector('.addcategory_modal'),
@@ -55,6 +57,7 @@ buttons.categories.addEventListener('click', () => toggleTableVisibility('catego
 buttons.orders.addEventListener('click', () => toggleTableVisibility('orders'));
 buttons.users.addEventListener('click', () => toggleTableVisibility('users'));
 buttons.suppliers.addEventListener('click', () => toggleTableVisibility('suppliers'));
+buttons.customer.addEventListener('click', () => toggleTableVisibility('customer_table'));
 buttons.add_supplier.addEventListener('click', () => toggleTableVisibility('addsupplier_modal'));
 buttons.add_product.addEventListener('click', () => toggleTableVisibility('addproduct_modal'));
 buttons.add_category.addEventListener('click', () => toggleTableVisibility('addcategory_modal'));
