@@ -635,15 +635,15 @@ INNER JOIN
             <tbody>
                 <?php
                 $sql = 'SELECT 
-                          
-                      app_user.id as user_id,
-                      app_user.username,
-                      app_user.email,
-                      role.role_name,
-                      app_user.created_at
-
-                      FROM app_user
-                      INNER JOIN role ON app_user.role_id = role.id';
+                app_user.id,
+                app_user.username,
+                app_user.email,
+                role.role_name,
+                app_user.created_at
+            FROM app_user
+            INNER JOIN role ON app_user.role_id = role.id
+            WHERE app_user.deleted_at IS NULL';
+    
                 $result = $conn->query($sql);
                 if (!$result) {
                     die("Invalide query :" . $conn->error);
@@ -652,14 +652,14 @@ INNER JOIN
                     echo "
                          <tr
                       class='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
-                      <td class='px-6 py-4'>{$row['user_id']}</td>
+                      <td class='px-6 py-4'>{$row['id']}</td>
                       <td class='px-6 py-4'>{$row['username']} </td>
                       <td class='px-6 py-4'>{$row['email']} </td>
                       <td class='px-6 py-4'>{$row['role_name']}</td>
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a onClick=\"javascript:return confirm('are you sure to delet this User');\" href='./../src\Controllers\user_Controller.php?id=" . $row['user_id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a onClick=\"javascript:return confirm('are you sure to delet this User');\" href='./../src\Controllers\user_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
