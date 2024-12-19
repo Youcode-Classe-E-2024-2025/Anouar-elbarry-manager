@@ -14,15 +14,19 @@ CREATE TABLE app_user (
     FOREIGN KEY (role_id) REFERENCES role(id)
 );
 
-CREATE TABLE product (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    quantity_instock INT,
-    category_id INT,
-    supplier_id INT,
-    FOREIGN KEY (category_id) REFERENCES category(id),
-    FOREIGN KEY (supplier_id) REFERENCES supplier(id)
-);
+CREATE TABLE `product` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `quantity_instock` int DEFAULT NULL,
+  `category_id` int DEFAULT NULL,
+  `supplier_id` int DEFAULT NULL,
+  `price` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `category_id` (`category_id`),
+  KEY `product_ibfk_1` (`supplier_id`),
+  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 CREATE TABLE category (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -47,7 +51,7 @@ CREATE TABLE `orders` (
   `supplier_id` int DEFAULT NULL,
   `product_id` int DEFAULT NULL,
   `order_date` date DEFAULT NULL,
-  `order_status` enum('pending','shipped','delivered') DEFAULT NULL,
+  `order_status` enum('pending', 'shipped', 'delivered') DEFAULT NULL,
   `quantity_ordered` int DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `customer_id` int DEFAULT NULL,
@@ -56,9 +60,9 @@ CREATE TABLE `orders` (
   KEY `fk_customer` (`customer_id`),
   KEY `orders_product_fk` (`product_id`),
   CONSTRAINT `fk_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
-  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`id`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`id`) ON DELETE CASCADE,  -- Add ON DELETE CASCADE here
   CONSTRAINT `orders_product_fk` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
  CREATE TABLE customer (
