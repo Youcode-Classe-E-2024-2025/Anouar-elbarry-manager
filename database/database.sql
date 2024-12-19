@@ -42,19 +42,24 @@ products_supplied INT ,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
 
-CREATE TABLE orders (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_id INT,
-    supplier_id INT,
-    product_id INT,
-    order_date DATE,
-    order_status ENUM('pending', 'shipped', 'delivered'),
-    quantity_ordered INT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (customer_id) REFERENCES customer(id),
-    FOREIGN KEY (supplier_id) REFERENCES supplier(id),
-    FOREIGN KEY (product_id) REFERENCES product(id)
-);
+CREATE TABLE `orders` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `supplier_id` int DEFAULT NULL,
+  `product_id` int DEFAULT NULL,
+  `order_date` date DEFAULT NULL,
+  `order_status` enum('pending','shipped','delivered') DEFAULT NULL,
+  `quantity_ordered` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `customer_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `supplier_id` (`supplier_id`),
+  KEY `fk_customer` (`customer_id`),
+  KEY `orders_product_fk` (`product_id`),
+  CONSTRAINT `fk_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`id`),
+  CONSTRAINT `orders_product_fk` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
  CREATE TABLE customer (
     id INT AUTO_INCREMENT PRIMARY KEY,
