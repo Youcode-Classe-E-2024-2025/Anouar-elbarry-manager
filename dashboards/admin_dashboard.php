@@ -1,9 +1,9 @@
 <?php
 require_once('./../database/configuration.php');
-require_once('./../src/modal/supplier/add_supplier.php');
-require_once('./../src\modal\categories\add_category.php');
-require_once('./../src\modal\products\add_product.php');
-require_once('./../src\modal\order\add_order.php');
+require_once('./../src/forms/supplier/add_supplier.php');
+require_once('./../src\forms\categories\add_category.php');
+require_once('./../src\forms\products\add_product.php');
+require_once('./../src\forms\order\add_order.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -297,6 +297,7 @@ require_once('./../src\modal\order\add_order.php');
                 <?php
                 $sql = 'SELECT 
     product.price,
+    product.id,
     product.name AS product_name,
     supplier.supplier_name,
     category.category_name,
@@ -323,7 +324,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['quantity_instock']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a href='./../src\Controllers\product_Controler.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
@@ -373,7 +374,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a href='./../src\Controllers\category_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
@@ -434,7 +435,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a href='./../src\Controllers\supplier_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
@@ -515,7 +516,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a href='./../src\Controllers\order_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
@@ -577,7 +578,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a href='' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                          <a href='./../src\Controllers\user_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
                       </td>
               </tr>
                  ";
