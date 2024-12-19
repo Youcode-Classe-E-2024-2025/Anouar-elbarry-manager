@@ -31,7 +31,8 @@ const tables = {
   addcategory_modal: document.querySelector('.addcategory_modal'),
   addproduct_modal: document.querySelector('.Addproduct_modal'),
   addorder_modal: document.querySelector('.Addorder_modal'),
-  addorder_modal: document.querySelector('.Addorder_modal'),
+  addcustomer_modal: document.querySelector('.addcustomer_modal'),
+  adduser_modal: document.querySelector('.adduser_modal'),
 };
 
 // Toggle sidebar visibility
@@ -63,6 +64,8 @@ buttons.add_supplier.addEventListener('click', () => toggleTableVisibility('adds
 buttons.add_product.addEventListener('click', () => toggleTableVisibility('addproduct_modal'));
 buttons.add_category.addEventListener('click', () => toggleTableVisibility('addcategory_modal'));
 buttons.add_order.addEventListener('click', () => toggleTableVisibility('addorder_modal'));
+buttons.add_customer.addEventListener('click', () => toggleTableVisibility('addcustomer_modal'));
+buttons.add_user.addEventListener('click', () => toggleTableVisibility('adduser_modal'));
 
 // controll the buttons
 buttons.products.addEventListener('click',()=>{
