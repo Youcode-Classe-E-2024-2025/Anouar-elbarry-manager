@@ -63,6 +63,46 @@ if (isset($_GET['id'])) {
         echo "Database error: " . $e->getMessage();
     }
 }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // Retrieve form data
+  $name = $_POST['name'];
+  $price = $_POST['price'];
+  $quantity = $_POST['quantity'];
+  $supplierpr = $_POST['supplierpr'];
+  $CategoryPr = $_POST['CategoryPr'];
+
+  // Validate and sanitize data
+  $name = $conn->real_escape_string(trim($name));
+  $price = $conn->real_escape_string(trim($price));
+  $quantity = $conn->real_escape_string(trim($quantity));
+  $supplierpr = $conn->real_escape_string(trim($supplierpr));
+  $CategoryPr = $conn->real_escape_string(trim($CategoryPr));
+
+   // Get supplier ID
+   $stmt1 = $conn->prepare("SELECT id FROM supplier WHERE supplier_name = ?");
+   $stmt1->bind_param("s", $supplierpr);
+   $stmt1->execute();
+   $result1 = $stmt1->get_result();
+   $supplierId = $result1->fetch_assoc()['id'] ?? null;
+   $stmt1->close();
+
+   // Get category ID
+   $stmt2 = $conn->prepare("SELECT id FROM category WHERE category_name = ?");
+   $stmt2->bind_param("s", $CategoryPr);
+   $stmt2->execute();
+   $result2 = $stmt2->get_result();
+   $categoryId = $result2->fetch_assoc()['id'] ?? null;
+   $stmt2->close();
+    
+        $insertSql = "INSERT INTO `product` (`name`,price,quantity_instock,category_id,supplier_id) 
+       
+        VALUES ('$name','$price','$quantity','$categoryId','$supplierId')";
+if ($conn->query($insertSql) === TRUE) {
+echo "Product added successfully!";
+} else {
+echo "Error: " . $insertSql . "<br>" . $conn->error;
+}
+}
       ?>
       </p>
 
