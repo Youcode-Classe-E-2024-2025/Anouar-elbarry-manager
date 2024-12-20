@@ -672,12 +672,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                           <form action='./../src\Controllers/user_Controller.php' method='POST' onsubmit='return confirm('Are you sure you want to restore this User?');'>
-            <input type='hidden' name='user_id' value='{$row['id']}'>
-            <input type='hidden' name='action' value='soft_delete'>
-            <button type='submit' class='font-medium text-yellow-600 dark:text-yellow-500 hover:underline'>
-                Archive
-            </button>
+                          <a onClick=\"javascript:return confirm('are you sure to delet this User');\" href='./../src\Controllers\user_Controller.php?id=" . $row['id'] . "' class='font-medium text-yellow-600 dark:text-yellow-500 hover:underline'>Archive</a>
                       </td>
               </tr>
                  ";
@@ -737,13 +732,7 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['role_name']}</td>
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
-                          <form action='./../src\Controllers/user_Controller.php' method='POST' onsubmit='return confirm('Are you sure you want to restore this User?');'>
-            <input type='hidden' name='user_id' value='{$row['id']}'>
-            <input type='hidden' name='action' value='restore'>
-            <button type='submit' class='font-medium text-green-600 dark:text-green-500 hover:underline'>
-                Restore
-            </button>
-        </form>
+                          <a onClick=\"javascript:return confirm('are you sure to resore this User');\" href='./../src/Controllers/restoreuser.php?id=" . $row['id'] . "' class='font-medium text-green-600 dark:text-green-500 hover:underline'>Restore</a>
                       </td>
               </tr>
                  ";
