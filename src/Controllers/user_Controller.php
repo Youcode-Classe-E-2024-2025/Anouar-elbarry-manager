@@ -44,84 +44,59 @@ require_once('./../../database/configuration.php');
     <div class="py-4 text-center">
       <p class="text-gray-600 text-sm">
       <?php 
-$actionResult = "";
 
+
+if (isset($_GET['id'])) {
+    $id = intval($_GET['id']); 
+
+    try {
+        $stmt = $conn->prepare("UPDATE `app_user` SET `deleted_at` = NOW() WHERE `id` = ?");
+        $stmt->bind_param("i", $id);
+
+        if ($stmt->execute()) {
+            echo " User has been archived successfully.";
+        } else {
+            echo "Failed to archive user: " . $conn->error;
+        }
+        
+        $stmt->close();
+
+    } catch (mysqli_sql_exception $e) {
+        echo "Database error: " . $e->getMessage();
+    }
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  if (isset($_POST['action']) && isset($_POST['user_id'])) {
-      $action = $_POST['action'];
-      $user_id = intval($_POST['user_id']);  
-
-      switch ($action) {
-          case 'soft_delete':
-              softDeleteUser($conn, $user_id);
-              break;
-          case 'restore':
-              restoreUser($conn, $user_id);
-              break;
-          default:
-              echo "Invalid action.";
-      }
-  }
-}
-
-// Soft delete function
-function softDeleteUser($conn, $id) {
-  $stmt = $conn->prepare("UPDATE `app_user` SET `deleted_at` = NOW() WHERE `id` = ?");
-  $stmt->bind_param("i", $id);
-  if ($stmt->execute()) {
-      echo"the user hase been archived"; 
-  } else {
-      echo "Error: " . $stmt->error;
-  }
-  $stmt->close();
-}
-
-// Restore function
-function restoreUser($conn, $id) {
-  $stmt = $conn->prepare("UPDATE `app_user` SET `deleted_at` = NULL WHERE `id` = ?");
-  $stmt->bind_param("i", $id);
-  if ($stmt->execute()) {
-    echo"the user hase been restored"; 
-  } else {
-      echo "Error: " . $stmt->error;
-  }
-  $stmt->close();
-}
-// Function to add a new user
-function addUser($conn) {
+  // Retrieve form data
   $username = $_POST['username'];
   $email = $_POST['email'];
   $password = $_POST['password'];
-
-  // Validate and sanitize input
+  // Validate and sanitize data
   $username = $conn->real_escape_string(trim($username));
   $email = $conn->real_escape_string(trim($email));
   $password = $conn->real_escape_string(trim($password));
 
-  // Hash the password
-  $password = password_hash($password, PASSWORD_BCRYPT);
-
-  $query = "SELECT id FROM `role`";
-  $result = $conn->query($query);
-
-  $role_id = mysqli_num_rows($result) === 0 ? 1 : 2;
-
-  try {
-      $stmt = $conn->prepare("INSERT INTO `app_user` (username, email, user_password, role_id) VALUES (?, ?, ?, ?)");
-      $stmt->bind_param("sssi", $username, $email, $password, $role_id);
-
-      if ($stmt->execute()) {
-          echo "User added successfully!";
-      } else {
-          echo "Error: " . $stmt->error;
-      }
-
-      $stmt->close();
-  } catch (Exception $e) {
-      echo "Error: " . $e->getMessage();
-  }
+   $query = 'SELECT id FROM `role`';
+   $result=$conn->query($query);
+   if(mysqli_num_rows($result) == 0) {
+      // Insert data into the table
+      $insertSql = "INSERT INTO `app_user` (username, email,user_password,role_id) 
+                    VALUES ('$username', '$email','$password',1)";
+     if ($conn->query($insertSql) === TRUE) {
+  echo "Supplier added successfully!";
+} else {
+  echo "Error: " . $insertSql . "<br>" . $conn->error;
 }
-
+   }
+    else{
+        $insertSql = "INSERT INTO `app_user` (username, email,user_password,role_id) 
+        VALUES ('$username', '$email','$password',2)";
+if ($conn->query($insertSql) === TRUE) {
+echo "Supplier added successfully!";
+} else {
+echo "Error: " . $insertSql . "<br>" . $conn->error;
+}
+}
+    }
       ?>
       </p>
 
