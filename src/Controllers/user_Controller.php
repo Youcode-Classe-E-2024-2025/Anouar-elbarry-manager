@@ -70,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $username = $_POST['username'];
   $email = $_POST['email'];
   $password = $_POST['password'];
+  $password = password_hash($password, PASSWORD_DEFAULT);
   // Validate and sanitize data
   $username = $conn->real_escape_string(trim($username));
   $email = $conn->real_escape_string(trim($email));
@@ -77,12 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
    $query = 'SELECT id FROM `role`';
    $result=$conn->query($query);
-   if(mysqli_num_rows($result) == 0) {
+   if(!mysqli_num_rows($result)) {
       // Insert data into the table
       $insertSql = "INSERT INTO `app_user` (username, email,user_password,role_id) 
                     VALUES ('$username', '$email','$password',1)";
      if ($conn->query($insertSql) === TRUE) {
-  echo "Supplier added successfully!";
+  echo "User added successfully!";
 } else {
   echo "Error: " . $insertSql . "<br>" . $conn->error;
 }
@@ -91,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $insertSql = "INSERT INTO `app_user` (username, email,user_password,role_id) 
         VALUES ('$username', '$email','$password',2)";
 if ($conn->query($insertSql) === TRUE) {
-echo "Supplier added successfully!";
+echo "User added successfully!";
 } else {
 echo "Error: " . $insertSql . "<br>" . $conn->error;
 }
