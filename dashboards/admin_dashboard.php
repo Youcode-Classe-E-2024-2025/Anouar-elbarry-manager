@@ -313,6 +313,7 @@ require_once('./../src\forms\users\add_user.php');
 
     <!-- products table -->
     <div class="pt-14 hidden products_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+    <h1 class="text-center font-bold text-2xl w-full">Products Table</h1>
         <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -380,6 +381,7 @@ INNER JOIN
     </div>
     <!-- customer table -->
     <div class="pt-14 hidden customer_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+    <h1 class="text-center font-bold text-2xl w-full">Customers Table</h1>
         <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -431,6 +433,7 @@ INNER JOIN
 
     <!-- Categories table -->
     <div class="pt-14  hidden category_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+    <h1 class="text-center font-bold text-2xl w-full">Categories Table</h1>
         <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -480,6 +483,7 @@ INNER JOIN
 
     <!-- Suppliers table -->
     <div class="pt-14 hidden supplier_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+    <h1 class="text-center font-bold text-2xl w-full">Suppliers Table</h1>
         <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -540,6 +544,7 @@ INNER JOIN
     </div>
     <!-- Orders table -->
     <div class="pt-14 hidden order_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+    <h1 class="text-center font-bold text-2xl w-full">Orders Table</h1>
         <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -622,6 +627,7 @@ INNER JOIN
 
     <!-- users table -->
     <div class="pt-14  hidden users_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+        <h1 class="text-center font-bold text-2xl w-full">Users Table</h1>
         <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
