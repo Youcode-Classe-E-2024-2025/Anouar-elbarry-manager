@@ -221,6 +221,19 @@ require_once('./../src\forms\users\add_user.php');
                         <span class="flex-1 ms-3 whitespace-nowrap">Add user</span>
                     </a>
                 </li>
+                 <!-- Archived Users -->
+                 <li>
+                    <a href="#" id="Archivedusers"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                         class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-white"
+                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+</svg>
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Archived Users</span>
+                    </a>
+                </li>
                 <!-- customer -->
                  <li>
                     <a href="#" id="customer"
@@ -659,7 +672,78 @@ INNER JOIN
                       <td class='px-6 py-4'>{$row['created_at']}</td>
                       <td class='px-2 py-4 flex  justify-around'>
                           <a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-                          <a onClick=\"javascript:return confirm('are you sure to delet this User');\" href='./../src\Controllers\user_Controller.php?id=" . $row['id'] . "' class='font-medium text-red-600 dark:text-red-500 hover:underline'>delet</a>
+                           <form action='./../src\Controllers/user_Controller.php' method='POST' onsubmit='return confirm('Are you sure you want to restore this User?');'>
+            <input type='hidden' name='user_id' value='{$row['id']}'>
+            <input type='hidden' name='action' value='soft_delete'>
+            <button type='submit' class='font-medium text-yellow-600 dark:text-yellow-500 hover:underline'>
+                Archive
+            </button>
+                      </td>
+              </tr>
+                 ";
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+    <!--  archived users table -->
+    <div class="pt-14  hidden archive_table h-screen sm:ml-64 overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-center text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        ID
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Username
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Email
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Role
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Created At
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $sql = 'SELECT 
+                app_user.id,
+                app_user.username,
+                app_user.email,
+                role.role_name,
+                app_user.created_at
+            FROM app_user
+            INNER JOIN role ON app_user.role_id = role.id
+            WHERE app_user.deleted_at IS NOT NULL';
+    
+                $result = $conn->query($sql);
+                if (!$result) {
+                    die("Invalide query :" . $conn->error);
+                }
+                while ($row = $result->fetch_assoc()) {
+                    echo "
+                         <tr
+                      class='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
+                      <td class='px-6 py-4'>{$row['id']}</td>
+                      <td class='px-6 py-4'>{$row['username']} </td>
+                      <td class='px-6 py-4'>{$row['email']} </td>
+                      <td class='px-6 py-4'>{$row['role_name']}</td>
+                      <td class='px-6 py-4'>{$row['created_at']}</td>
+                      <td class='px-2 py-4 flex  justify-around'>
+                          <form action='./../src\Controllers/user_Controller.php' method='POST' onsubmit='return confirm('Are you sure you want to restore this User?');'>
+            <input type='hidden' name='user_id' value='{$row['id']}'>
+            <input type='hidden' name='action' value='restore'>
+            <button type='submit' class='font-medium text-green-600 dark:text-green-500 hover:underline'>
+                Restore
+            </button>
+        </form>
                       </td>
               </tr>
                  ";
