@@ -63,6 +63,22 @@ if (isset($_GET['id'])) {
         echo "Database error: " . $e->getMessage();
     }
 }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // Retrieve form data
+  $name = $_POST['name'];
+  $productNbr = $_POST['productNbr'];
+  // Validate and sanitize data
+  $name = $conn->real_escape_string(trim($name));
+  $productNbr = $conn->real_escape_string(trim($productNbr));
+    
+        $insertSql = "INSERT INTO `category` (category_name, products_nbr) 
+        VALUES ('$name', '$productNbr')";
+if ($conn->query($insertSql) === TRUE) {
+echo "Category added successfully!";
+} else {
+echo "Error: " . $insertSql . "<br>" . $conn->error;
+}
+}
       ?>
       </p>
 
