@@ -12,7 +12,8 @@ module.exports = {
      "src/Controllers/order_Controler.php",
      "src/Controllers/supplier_Controler.php",
      "src/Controllers/customer_Controler.php",
-     "src/Controllers/user_Controler.php"
+     "src/Controllers/user_Controler.php",
+     "src/Controllers/restoreuser.php",
     ],
   theme: {
     extend: {},
