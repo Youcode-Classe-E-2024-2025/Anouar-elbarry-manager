@@ -14,6 +14,8 @@ module.exports = {
      "src/Controllers/customer_Controler.php",
      "src/Controllers/user_Controler.php",
      "src/Controllers/restoreuser.php",
+     "regester-login/login.html",
+     "regester-login/regester.html",
     ],
   theme: {
     extend: {},
