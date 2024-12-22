@@ -36,6 +36,11 @@ To help visualize functionality, sample data has been provided for all tables:
 - Customers: Sample customers with contact details.
 - Orders: Sample orders with varying statuses.
 
+## USE CASES UML / ERD
+
+![ERD](./src/imges/ERD.png)
+![UML](./src/imges/UML.png)
+
 ## Requirements
 
 - **Database**: MySQL 5.7 or above.
