@@ -41,4 +41,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['regester'])) {
         echo "Error: " . $insertSql . "<br>" . $conn->error;
     }
 }
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+    // Retrieve and sanitize form data
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']); 
+    $username = $conn->real_escape_string($username);
+
+    // Check if the user exists in the database
+    $query = "SELECT * FROM `app_user` WHERE username = '$username'";
+    $result = $conn->query($query);
+
+    if ($result && $result->num_rows > 0) {
+        // Fetch user data
+        $user = $result->fetch_assoc();
+
+        // Verify the password
+        if (password_verify($password, $user['user_password'])) {
+            // Redirect based on role
+            if ($user['role_id'] == 1) {
+                header("Location: ./../dashboards/admin_dashboard.php");
+            } else {
+                header("Location: ./../dashboards/user_dashboard.php");
+            }
+            exit();
+        } else {
+            echo "Invalid password.";
+        }
+    } else {
+        echo "User does not exist.";
+    }
+}
 ?>
