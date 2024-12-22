@@ -4,9 +4,9 @@ STOK WISE is a comprehensive inventory management system designed to help busine
 
 ## Features
 
-- **Role Management**: Define and manage roles such as Admin, Manager, Employee, and Customer.
+- **Role Management**: Define and manage roles such as Admin, ,user.
 - **User Management**: Manage users with unique credentials, roles, and contact information.
-- **Product Management**: Add, update, and track product details including categories, stock levels, prices, and suppliers.
+- **Product Management**: Add, update, and track product details including categories, prices, and suppliers.
 - **Category Management**: Organize products into categories with the ability to track the number of products in each category.
 - **Supplier Management**: Maintain detailed supplier information including contact details and products supplied.
 - **Order Management**: Track orders with details such as supplier, product, quantity, status, and customer information.
