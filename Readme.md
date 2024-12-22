@@ -63,7 +63,6 @@ To help visualize functionality, sample data has been provided for all tables:
 - **User Authentication**: Implement authentication for secure access.
 - **Analytics**: Add reports for stock trends and supplier performance.
 - **Notifications**: Include reorder notifications for low-stock products.
-- **Integration**: Connect with third-party tools for advanced functionality.
 
 ## Contact
 
