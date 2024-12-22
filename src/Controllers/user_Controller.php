@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
         echo "Database error: " . $e->getMessage();
     }
 }
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset( $_POST['add'])) {
   // Retrieve form data
   $username = trim($_POST['username']);
   $email = trim($_POST['email']);
