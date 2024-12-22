@@ -1,5 +1,5 @@
 <?php 
-require_once("./database/configuration.php");
+require_once("./../database/configuration.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['regester'])) {
     // Retrieve form data
@@ -32,9 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['regester'])) {
     if ($conn->query($insertSql) === true) {
         // Redirect based on role
         if ($roleId == 1) {
-            header("Location: ./admin_dashboard.php");
+            header("Location: ./../dashboards\admin_dashboard.php");
         } else {
-            header("Location: ./user_dashboard.php");
+            header("Location: ./../dashboards\user_dashboard.php");
         }
         exit(); // Ensure no further code is executed after redirection
     } else {
