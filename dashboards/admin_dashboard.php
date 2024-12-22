@@ -1,5 +1,5 @@
 <?php
-require_once('./../database/configuration.php');
+require('./../database/configuration.php');
 require_once('./../src/forms/supplier/add_supplier.php');
 require_once('./../src\forms\categories\add_category.php');
 require_once('./../src\forms\products\add_product.php');
