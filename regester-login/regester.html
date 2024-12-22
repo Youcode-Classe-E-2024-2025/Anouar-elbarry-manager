@@ -7,9 +7,9 @@
     <title>log-in</title>
 </head>
 <body>
-    <section id="modal" style="background-image: url('src/imges/cool-background.png'); background-position:center; background-size: cover;" class=" left-0 top-0 h-screen w-full">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <div class="w-full bg-transparent shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-lg  dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+    <section id="modal" style="background-image: url('./../src/imges/bg.png'); background-position:center; background-size: cover;" class=" left-0 top-0 h-screen w-full">
+        <div class="flex flex-col items-center justify-center px-6 py-6 mx-auto md:h-screen lg:py-0">
+            <div class="w-full bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-lg  dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-transparent bg-gradient-to-tr from-black to-blue-600 bg-clip-text md:text-2xl dark:text-white">
                         creat your account
@@ -25,7 +25,7 @@
                         </div>
                         <div>
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                            <input type="text" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
                         </div>
                         <div>
                             <label for="password2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Repeat Password</label>
@@ -50,5 +50,50 @@
             </div>
         </div>
       </section>
+      <script>
+        // Regular Expressions for Validation
+const usernameRegex = /^[a-zA-Z0-9_]{3,20}$/; // 3-20 characters, letters, numbers, underscores
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Standard email format
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; 
+// Minimum 8 characters, one uppercase, one lowercase, one digit, one special character
+
+// Add event listener to the form
+document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission for validation
+
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const password2 = document.getElementById("password2").value;
+
+    // Validate Username
+    if (!usernameRegex.test(username)) {
+        alert("Invalid username. It should be 3-20 characters long and can only contain letters, numbers, and underscores.");
+        return;
+    }
+
+    // Validate Email
+    if (!emailRegex.test(email)) {
+        alert("Invalid email. Please enter a valid email address.");
+        return;
+    }
+
+    // Validate Password
+    if (!passwordRegex.test(password)) {
+        alert("Invalid password. It should be at least 8 characters long, contain uppercase and lowercase letters, a number, and a special character.");
+        return;
+    }
+
+    // Validate Password Confirmation
+    if (password !== password2) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    // If all validations pass, submit the form
+    this.submit();
+});
+
+      </script>
 </body>
 </html>
