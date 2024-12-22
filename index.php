@@ -16,7 +16,7 @@
                     class="text-emerald-500">STOK</span> <span class="text-orange-600">WISE</span></h1>
             <p class="mt-4 text-lg md:text-xl">Your smart inventory management solution</p>
             <div class="w-full h-16 flex items-center justify-center">
-          <a href="#_" class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition duration-300 ease-out border-2 border-orange-500 rounded-full shadow-md group">
+          <a href="./regester-login/regester.html" class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition duration-300 ease-out border-2 border-orange-500 rounded-full shadow-md group">
             <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-orange-500 group-hover:translate-x-0 ease">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
