@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset( $_POST['add'])) {
   // Retrieve form data
   $username = trim($_POST['username']);
   $email = trim($_POST['email']);
-  $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
+  $password = password_hash(password: trim($_POST['password']), algo: PASSWORD_DEFAULT);
 
   // Sanitize inputs
   $username = $conn->real_escape_string($username);
